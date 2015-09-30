@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Priti_Parate\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.0\support-annotations-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.0-6bd7fb72e4266ac259d6b11e79928d1beeab70c3.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-5ed9b966e3d54f7a4ea956e0dac53576d4dffa6c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.couchbase.lite\couchbase-lite-android\1.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="7fabab55757896e15b73ece0d813e167a95278dd">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-2881dddff7cd598997157fecf28eeffa1feec73c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-databind\2.5.0\489b7552dd3322b63f694122d16ce62c21c303b5\jackson-databind-2.5.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="489b7552dd3322b63f694122d16ce62c21c303b5">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\jackson-databind-2.5.0-723b81b904465b98e79726ae54fa2d29c04496cb.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-annotations\2.5.0\a2a55a3375bc1cef830ca426d68d2ea22961190e\jackson-annotations-2.5.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="a2a55a3375bc1cef830ca426d68d2ea22961190e">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\jackson-annotations-2.5.0-299ce8c9d02dd38cf7657e37a850b059eb42758d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="4fcf0b1879f8caf497c073e1432d398e9e2988c1">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-a2d3d84211b606ab78d0501097e56debc34892ea.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\.gradle\caches\modules-2\files-2.1\com.github.oxo42\stateless4j\2.4.0\128aca4ace585f0b42faa739d0b968a154debb7a\stateless4j-2.4.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="128aca4ace585f0b42faa739d0b968a154debb7a">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\stateless4j-2.4.0-e2f25a2c6859cfb17d060af97bf2becbc3ad5e84.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\libs\internal_impl-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.0-2fe7a44fc3ed8e71e557bf45a77589ff0cf1c7f5.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\.gradle\caches\modules-2\files-2.1\com.couchbase.lite\couchbase-lite-java-core\1.1.0\d38732525a19a6d32b353c05dfeff70a9b3361f4\couchbase-lite-java-core-1.1.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="d38732525a19a6d32b353c05dfeff70a9b3361f4">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\couchbase-lite-java-core-1.1.0-0f3b6eb19c8db63167a486e5ddcec537b972e8ff.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.5.0\b2ece1bd57ac7b4c315b7505b65ac79cb1da4270\jackson-core-2.5.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="b2ece1bd57ac7b4c315b7505b65ac79cb1da4270">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\jackson-core-2.5.0-8a72d802b64e29bba888b7c9cec1ee42c6e8e085.jar" />
+    </item>
+
+</items>
