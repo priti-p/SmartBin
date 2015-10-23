@@ -35,5 +35,10 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.0.0'
 
     // By default, this depends on couchbase lite via the maven artifact
-    compile 'com.couchbase.lite:couchbase-lite-android:1.1.0'
+//    compile 'com.couchbase.lite:couchbase-lite-android:1.1.0'
+
+    compile 'com.google.android.gms:play-services:7.8.0'
+    compile files('libs/GraphView-3.1.1.jar')
+    compile files('libs/achartengine-1.1.0.jar')
+
 }
