@@ -1,35 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <!--<ScrollView-->
-        <!--android:id="@+id/scrollViewAnalysisFillLevels"-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="fill_parent"-->
-        <!--android:layout_weight="2">-->
-
-        <!--<ListView-->
-            <!--android:layout_width="fill_parent"-->
-            <!--android:layout_height="fill_parent"-->
-            <!--android:id="@+id/compareBins">-->
-
-            <!--<CheckBox-->
-                <!--android:id="@+id/chkIos"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="trial" />-->
-
-        <!--</ListView>-->
-
-    <!--</ScrollView>-->
+    android:layout_height="match_parent" android:id="@+id/analysisActivity"
+    android:label="@string/Analysis_Fragment" >
 
     <ListView
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/compareBins"
+        android:layout_height="275dp"
+        android:id="@+id/compareBinsList"
         android:layout_weight="1">
     </ListView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pick_fromDate"
+                android:textSize="15dp"
+                />
+
+            <EditText
+                android:id="@+id/FromDate"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pick_toDate"
+                android:textSize="15dp"
+                />
+
+            <EditText
+                android:id="@+id/ToDate"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -40,29 +64,21 @@
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:id="@+id/analysis_trend">
 
             <RadioButton android:id="@+id/radio_fill_trend"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/fill_trend"
-                android:onClick="onRadioButtonClicked"/>
-
-            <RadioButton android:id="@+id/radio_tbd1"
+                android:text="@string/fill_trend"/>
+            <RadioButton android:id="@+id/radio_temp_trend"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="TBD"
-                android:onClick="onRadioButtonClicked"/>
-            <RadioButton android:id="@+id/radio_tbd2"
+                android:text="@string/temperature_trend"/>
+            <RadioButton android:id="@+id/radio_humadity_trend"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="TBD"
-                android:onClick="onRadioButtonClicked"/>
-            <RadioButton android:id="@+id/radio_tbd3"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="TBD"
-                android:onClick="onRadioButtonClicked"/>
+                android:text="@string/humidity_trend" />
         </RadioGroup>
 
     </ScrollView>

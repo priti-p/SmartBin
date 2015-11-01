@@ -1,11 +1,14 @@
 package com.smartbinapp.smartbin;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -27,6 +31,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 
 import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -51,11 +56,16 @@ public class MapFragment extends Fragment implements View.OnClickListener {
     private static final String TAG_LONGITUDE = "Longitude";
     private static final String TAG_PID = "Id";
     private static final String TAG_Fill = "Fill";
+    private static final String TAG_Humidity = "humidity";
+    private static final String TAG_Temp = "temperature";
+
     // JSON Node names
     private static final String TAG_SUCCESS = "success";
-    private static final String TAG_ROUTES = "shortest_route";
+    private static final String TAG_ROUTES = "bins";
 
-    private static String url_shortest_route = "http://100.65.4.165:80/binapp/bins_tsp.php?lat=12.9767&lon=77.5767&rad=20";
+    //private static String url_shortest_route = "http://100.66.41.139:80/binapp/bins_tsp.php?lat=12.9767&lon=77.5767&rad=20";
+    //private static String url_shortest_route = "http://10.245.115.2:80/binapp/bins_tsp.php";
+    private static String url_shortest_route ="http://10.245.115.2/binapp/optimal_route.php";
     JSONArray routes=null;
 
     private static final LatLng Bangalore1 = new LatLng(12.9667, 77.5667);
@@ -77,6 +87,8 @@ public class MapFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // TODO Auto-generated method stub
+
+        ((LaunchActivity) getActivity()).getSupportActionBar().setTitle(R.string.Map_Fragment);
         View v = inflater.inflate(R.layout.map, container, false);
 
         // Gets the MapView from the XML layout and creates it
@@ -84,6 +96,10 @@ public class MapFragment extends Fragment implements View.OnClickListener {
         mapView.onCreate(savedInstanceState);
         // Gets to GoogleMap from the MapView and does initialization stuff
         map = mapView.getMap();
+
+//        if(LaunchActivity.data_for_search){
+//            LaunchActivity.buildDialogAsSearched(getActivity()).show();
+//        }
 
         getBinsPositionOnMap();
 
@@ -95,6 +111,7 @@ public class MapFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onClick(View v) {
 
+                ((LaunchActivity) getActivity()).getSupportActionBar().setTitle(R.string.Map_Route);
 
 
                 Log.d("routes ", routes.toString());
@@ -117,28 +134,22 @@ public class MapFragment extends Fragment implements View.OnClickListener {
 
                             for(int i=0;i<routes.length()-1;i++) {
 
-                                Log.d(TAG, "i _ i+1 " + i + " " + routes.getInt(i)+ " _ "+ routes.getInt(i+1));
 
-                                JSONObject sourceObj = LaunchActivity.bins.getJSONObject(routes.getInt(i));
+                                JSONObject sourceObj = routes.getJSONObject(i);
                                 LatLng source = new LatLng(Double.parseDouble(sourceObj.getString(TAG_LATITUDE)), Double.parseDouble(sourceObj.getString(TAG_LONGITUDE)));
 
-                                JSONObject destObj = LaunchActivity.bins.getJSONObject(routes.getInt(i+1));
+                                JSONObject destObj = routes.getJSONObject(i + 1);
                                 LatLng dest = new LatLng(Double.parseDouble(destObj.getString(TAG_LATITUDE)),Double.parseDouble(destObj.getString(TAG_LONGITUDE)));
 
                                 Log.d(TAG, "source _ dest " + i + " " + source.toString()+ " _ "+ dest.toString());
-
-//                                LatLng source = new LatLng(coordinates[i][0], coordinates[i][1]);
-//                                LatLng dest = new LatLng(coordinates[i + 1][0], coordinates[i + 1][1]);
 
                                 String url = getMapsApiDirectionsUrl(source, dest);
                                 Log.d(TAG, "hehehe in oncreate " + i + " " + url);
                                 ReadTask downloadTask = new ReadTask();
                                 downloadTask.execute(url);
 
-                                //map.moveCamera(CameraUpdateFactory.newLatLngZoom(Bangalore1, 13));
-                                getBinsPositionOnMap();
-
                             }
+                            getBinsPositionOnMap();
 
 
                         } catch (JSONException e) {
@@ -181,27 +192,34 @@ public class MapFragment extends Fragment implements View.OnClickListener {
             //allBinsInfo.setContext(getActivity().getBaseContext());//need to recheck
             //allBinsInfo.getAllRegBins();
 
-            while(LaunchActivity.bins==null){}
+            //while(LaunchActivity.bins==null){}
 
             for (int i = 0; LaunchActivity.bins!=null && i < LaunchActivity.bins.length(); i++) {
 
                 JSONObject c = LaunchActivity.bins.getJSONObject(i);
                 if(c!=null) {
                     float currFill = Float.parseFloat(c.getString(TAG_Fill));
+                    float currHumidity = Float.parseFloat(c.getString(TAG_Humidity));
+                    float currTemp= Float.parseFloat(c.getString(TAG_Temp));
+//                    int cc = 0x00B0;
+//                    char ccc = (char) Integer.parseInt(String.valueOf(cc), 16);
+//                    final String text = String.valueOf(ccc);
+                    final char text = '\u2103';
+
                     if(currFill <= 40){
 
                         map.addMarker(new MarkerOptions().position(new LatLng(Double.parseDouble(c.getString(TAG_LATITUDE)), Double.parseDouble(c.getString(TAG_LONGITUDE))))
                                         .draggable(false)
-                                        .title("Fill:" + currFill + " Humidity  Temperature")
+                                        .title("Fill:" + currFill + "% Humidity:" + currHumidity + "% Temperature:" + currTemp +text)
                                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
-                        );
+                                        );
 
                     }
                     else if (currFill > 40 && currFill <=75)
                     {
                         map.addMarker(new MarkerOptions().position(new LatLng(Double.parseDouble(c.getString(TAG_LATITUDE)), Double.parseDouble(c.getString(TAG_LONGITUDE))))
                                         .draggable(false)
-                                        .title("Bin" + i + " Fill:" + currFill + " Humidity  Temperature")
+                                        .title("Fill:" + currFill + "% Humidity:" + currHumidity + "% Temperature:" + currTemp +text)
                                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))
                         );
 
@@ -210,7 +228,7 @@ public class MapFragment extends Fragment implements View.OnClickListener {
                     {
                         map.addMarker(new MarkerOptions().position(new LatLng(Double.parseDouble(c.getString(TAG_LATITUDE)), Double.parseDouble(c.getString(TAG_LONGITUDE))))
                                         .draggable(false)
-                                        .title("Fill:" + currFill + " Humidity  Temperature")
+                                        .title("Fill:" + currFill + "% Humidity:" + currHumidity + "% Temperature:" + currTemp +text)
                                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
                         );
 
@@ -356,7 +374,10 @@ public class MapFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onResume() {
         super.onResume();
-        getBinsPositionOnMap ();
+        if(LaunchActivity.data_for_search){
+            LaunchActivity.buildDialogAsSearched(getActivity()).show();
+        }
+        getBinsPositionOnMap();
         mapView.onResume();
     }
 
@@ -375,7 +396,11 @@ public class MapFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View arg0) {
         // TODO Auto-generated method stub
-        ((BaseContainerFragment)getParentFragment()).replaceFragment(new MapFragment(), true);
+//        ((BaseContainerFragment)getParentFragment()).replaceFragment(new MapFragment(), true);
+//        if(LaunchActivity.data_for_search){
+//            buildDialog(getActivity().getApplicationContext()).show();
+//
+//        }
     }
 
 
@@ -459,10 +484,6 @@ public class MapFragment extends Fragment implements View.OnClickListener {
     }
 
 
-
-
-
-
     private class GetOptimalRoute extends AsyncTask<String, String, String> {
 
         ProgressDialog pDialog;
@@ -474,15 +495,15 @@ public class MapFragment extends Fragment implements View.OnClickListener {
         protected void onPreExecute() {
             super.onPreExecute();
 
-            if(getActivity().getBaseContext()!=null) {
+            if(getActivity()!=null) {
                 if (pDialog != null) {
                     pDialog = null;
                 }
-                pDialog = new ProgressDialog(getActivity().getBaseContext());
+                pDialog = new ProgressDialog(getActivity());
                 pDialog.setMessage("getting optimal route. Please wait...");
                 pDialog.setIndeterminate(false);
                 pDialog.setCancelable(false);
-                // pDialog.show();
+                pDialog.show();
             }
         }
 
@@ -492,6 +513,9 @@ public class MapFragment extends Fragment implements View.OnClickListener {
 
                 // Building Parameters
                 List<NameValuePair> params = new ArrayList<NameValuePair>();
+                params.add(new BasicNameValuePair("lat", Double.toString(LaunchActivity.currentLocation.latitude)));
+                params.add(new BasicNameValuePair("lon", Double.toString(LaunchActivity.currentLocation.longitude)));
+                params.add(new BasicNameValuePair("rad", Integer.toString(20)));
 
                 // getting JSON string from URL
                 json = jParser.makeHttpRequest(url_shortest_route, "GET", params);

@@ -1,6 +1,7 @@
 package com.smartbinapp.smartbin;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,7 +32,10 @@ public class FillLevelCustomAdapter extends BaseAdapter {
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        return reqMap.size();
+        if(reqMap!=null)
+            return reqMap.size();
+        else
+            return 0;
     }
 
     @Override
@@ -77,14 +81,16 @@ public class FillLevelCustomAdapter extends BaseAdapter {
 
 
 
-        rowView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-//                Toast.makeText(context, "You Clicked ", Toast.LENGTH_LONG).show();
-                Log.d(TAG, "hi " + " listview listener");
-            }
-        });
+//        rowView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // TODO Auto-generated method stub
+////                Toast.makeText(context, "You Clicked ", Toast.LENGTH_LONG).show();
+//                Log.d(TAG, "hi " + " listview listener");
+//                //Intent intent = new Intent( context, BinDetailsActivity.class);
+//                //startActivity(intent);
+//            }
+//        });
         return rowView;
     }
 }

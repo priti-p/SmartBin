@@ -1,39 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:orientation="horizontal" android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:id="@+id/flbtnlayout">
+    android:orientation="horizontal" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:layout_marginTop="5dp"
+    android:id="@+id/analysisFilllayout">
 
     <CheckBox
         android:id="@+id/chkAnalysis"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="">
+        android:layout_height="wrap_content">
     </CheckBox>
 
+
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:id="@+id/chkTextlayout">
 
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="Left Side"-->
-            <!--android:textSize="15sp"-->
-            <!--android:textStyle="bold"-->
-            <!--android:id="@+id/ltxtView"-->
-            <!--android:layout_alignEnd="@id/rtxtView"-->
-            <!--android:layout_alignRight="chkAnalysis"/>-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:textSize="15dp"
+            android:textColor="@android:color/white"
+            android:id="@+id/analysisLtxtView"/>
 
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="Right Side"-->
-            <!--android:textSize="15sp"-->
-            <!--android:textStyle="bold"-->
-            <!--android:id="@+id/rtxtView"-->
-            <!--/>-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textSize="15dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:textColor="@android:color/white"
+            android:id="@+id/analysisRtxtView"/>
+
     </RelativeLayout>
 
 </LinearLayout><!-- From: file:/C:/Users/Priti_Parate/AndroidStudioProjects/SmartBin/app/src/main/res/layout/analysis_filllevel_item.xml -->

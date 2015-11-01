@@ -257,7 +257,10 @@
     <integer name="status_bar_notification_info_maxnum">999</integer>
     <!-- From: file:/C:/Users/Priti_Parate/AndroidStudioProjects/SmartBin/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="Fill_Levels_activity">Fill Level</string>
+    <string name="Analysis_Fragment">Analysis</string>
+    <string name="Fill_Levels_Fragment">Fill Level</string>
+    <string name="Map_Fragment">Bins Location</string>
+    <string name="Map_Route">Optimal Route</string>
     <!-- From: file:/C:/Users/Priti_Parate/AndroidStudioProjects/SmartBin/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
     <string name="abc_action_bar_home_description">Navigate home</string>
@@ -282,6 +285,7 @@
     <string name="accept">Accept</string>
     <!-- From: file:/C:/Users/Priti_Parate/AndroidStudioProjects/SmartBin/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="action_export">Export</string>
     <string name="action_refresh"/>
     <string name="action_settings">Settings</string>
     <string name="app_name">Smart Bin</string>
@@ -337,6 +341,7 @@
     <eat-comment/>
     <string name="fill_trend">Fill Trend</string>
     <string name="hello_world">Hello world!</string>
+    <string name="humidity_trend">Humidity Trend</string>
     <!-- From: file:/C:/Users/Priti_Parate/AndroidStudioProjects/SmartBin/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <string name="mr_media_route_button_content_description">Cast</string>
@@ -351,9 +356,10 @@
     <string name="mr_user_route_category_name">Devices</string>
     <!-- From: file:/C:/Users/Priti_Parate/AndroidStudioProjects/SmartBin/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="pick_date1">From</string>
-    <string name="pick_date2">To</string>
+    <string name="pick_fromDate">From :</string>
+    <string name="pick_toDate">To :</string>
     <string name="search_loc_hint">Search</string>
+    <string name="show_graph">Show graph</string>
     <!-- From: file:/C:/Users/Priti_Parate/AndroidStudioProjects/SmartBin/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
     <string name="status_bar_notification_info_overflow">999+</string>
@@ -361,6 +367,14 @@
     <eat-comment/>
     <string name="store_picture_message">"Allow Ad to store image in Picture gallery?"</string>
     <string name="store_picture_title">Save image</string>
+    <!-- From: file:/C:/Users/Priti_Parate/AndroidStudioProjects/SmartBin/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="temperature_trend">Temperature Trend</string>
+    <string name="title_activity_analysis_graph">AnalysisGraph</string>
+    <string name="title_activity_bin_details">Bin Details</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
     <!-- From: file:/C:/Users/Priti_Parate/AndroidStudioProjects/SmartBin/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.8.0/res/values/wallet_strings.xml -->
     <eat-comment/>
     <string name="wallet_buy_button_place_holder">Buy with Google</string>
@@ -374,6 +388,9 @@
     <eat-comment/>
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+        <item name="android:titleTextStyle">@style/TitleBarTextColor</item>
+        <item name="android:tabWidgetStyle">@android:style/Widget</item>
     </style>
     <!-- From: file:/C:/Users/Priti_Parate/AndroidStudioProjects/SmartBin/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>
@@ -1290,6 +1307,16 @@
         <item name="android:minWidth">56dp</item>
         <item name="android:scaleType">center</item>
     </style>
+    <!-- From: file:/C:/Users/Priti_Parate/AndroidStudioProjects/SmartBin/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">#FFFF00</item>
+    </style>
+    <style name="MyActionBarTabText" parent="@android:style/Widget.Holo.ActionBar.TabText">
+        <item name="android:textColor">#0000ff</item>
+    </style>
+    <!-- From: file:/C:/Users/Priti_Parate/AndroidStudioProjects/SmartBin/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
+    <eat-comment/>
     <style name="Platform.AppCompat" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>
 
@@ -1430,6 +1457,15 @@
     <style name="RtlOverlay.Widget.AppCompat.SearchView.MagIcon" parent="android:Widget">
         <item name="android:layout_marginLeft">@dimen/abc_dropdownitem_text_padding_left</item>
     </style>
+    <!-- From: file:/C:/Users/Priti_Parate/AndroidStudioProjects/SmartBin/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="TabWidget">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@android:color/tab_indicator_text</item>
+    </style>
+    <!-- From: file:/C:/Users/Priti_Parate/AndroidStudioProjects/SmartBin/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
+    <eat-comment/>
     <style name="TextAppearance.AppCompat" parent="Base.TextAppearance.AppCompat"/>
     <style name="TextAppearance.AppCompat.Body1" parent="Base.TextAppearance.AppCompat.Body1"/>
     <style name="TextAppearance.AppCompat.Body2" parent="Base.TextAppearance.AppCompat.Body2"/>
@@ -1558,6 +1594,11 @@
     <style name="ThemeOverlay.AppCompat.Dark" parent="Base.ThemeOverlay.AppCompat.Dark"/>
     <style name="ThemeOverlay.AppCompat.Dark.ActionBar" parent="Base.ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="ThemeOverlay.AppCompat.Light" parent="Base.ThemeOverlay.AppCompat.Light"/>
+    <!-- From: file:/C:/Users/Priti_Parate/AndroidStudioProjects/SmartBin/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="TitleBarTextColor" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">#FFFF00</item>
+    </style>
     <!-- From: file:/C:/Users/Priti_Parate/AndroidStudioProjects/SmartBin/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.8.0/res/values/wallet_styles.xml -->
     <eat-comment/>
     <style name="WalletFragmentDefaultButtonTextAppearance">
@@ -1591,6 +1632,13 @@
         <item name="maskedWalletDetailsButtonTextAppearance">@style/WalletFragmentDefaultButtonTextAppearance</item>
         <item name="maskedWalletDetailsLogoTextColor">@color/wallet_bright_foreground_holo_dark</item>
         <item name="maskedWalletDetailsLogoImageType">google_wallet_classic</item>
+    </style>
+    <!-- From: file:/C:/Users/Priti_Parate/AndroidStudioProjects/SmartBin/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="Widget">
+        <item name="android:textAppearance">@android:style/TextAppearance.Widget.TabWidget</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:singleLine">true</item>
     </style>
     <!-- From: file:/C:/Users/Priti_Parate/AndroidStudioProjects/SmartBin/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>

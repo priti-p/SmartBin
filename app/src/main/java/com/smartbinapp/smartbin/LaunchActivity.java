@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.location.Address;
 import android.location.Geocoder;
+import android.location.Location;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -23,10 +24,16 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TabHost;
+import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.model.LatLng;
 
 import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,64 +43,81 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class LaunchActivity extends AppCompatActivity {
+public class LaunchActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener
+{
 
-    private static final String TAB_FillLevels_TAG = "tab_FillLevels";
-    private static final String TAB_Map_TAG = "tab_Map";
-    private static final String TAB_Analaysis_TAG = "tab_Analysis";
-    private FragmentTabHost mTabHost;
+    public static final String TAB_FillLevels_TAG = "tab_FillLevels";
+    public static final String TAB_Map_TAG = "tab_Map";
+    public static final String TAB_Analaysis_TAG = "tab_Analysis";
+    public static FragmentTabHost mTabHost = null;
 
     private LoadBinsInfo reqbininfo =null;
     public static JSONArray bins=null;
+    public static String currentTabTag=null;
+//    List<NameValuePair> params = new ArrayList<NameValuePair>();
 
-    private static String url_all_bins = "http://100.65.4.165/binapp/get_bins_radius.php?lat=12.9767&lon=77.5767&rad=20";
+//    private BinsOfSearchedArea bininfoForArea = null;
+
+    //private static String url_all_bins = "http://100.65.4.165/binapp/get_bins_radius.php?lat=12.9767&lon=77.5767&rad=20";
+    private static final String url_all_bins = "http://10.245.115.2/binapp/get_bins_radius.php";
+    private static final String url_serach_query = "http://10.245.115.2/binapp/get_for_serached_area.php";
+    public static boolean data_for_search = false;
+    EditText editText1=null;
 
     private Context ctx;
-    private ProgressDialog pDialog;
+    private Location mLastLocation;
+
+    private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 1000;
+    public static LatLng currentLocation=null;
+    public static int currRad=10;
+    public static String searchedArea=null;
+
+
+    // Google client to interact with Google API
+    private GoogleApiClient mGoogleApiClient;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         ctx=this;
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_launch);
 
+        // First we need to check availability of play services
+        if (checkPlayServices()) {
 
-        if(!isConnected(this))
-            buildDialog(this).show();
-        else {
+            // Building the GoogleApi client
+            buildGoogleApiClient();
+
+            if(!isConnected(this)) {
+                buildDialog(this).show();
+                finish();
+            }
+            else {
+                currentLocation=getCurrentLocation();
+            }
+
             // we have internet connection, so it is save to connect to the internet here
-            Log.d("NEt", " is connected" );
+            Log.d("GoogleAPi", " is available");
+
+//            params.add(new BasicNameValuePair("lat", Double.toString(currentLocation.latitude)));
+//            params.add(new BasicNameValuePair("lon", Double.toString(currentLocation.longitude)));
+//            //params.add(new BasicNameValuePair("lat", Double.toString(12.9767)));
+//            //params.add(new BasicNameValuePair("lon", Double.toString(77.5767)));
+//            params.add(new BasicNameValuePair("rad", Integer.toString(20)));
+
 
             reqbininfo = new LoadBinsInfo();
             reqbininfo.execute();
 
-
-//            while(bins==null) {
-//                pDialog = new ProgressDialog(this);
-//                pDialog.setMessage("Loading bins. Please wait...");
-//                pDialog.setIndeterminate(false);
-//                pDialog.setCancelable(false);
-//                pDialog.show();
-//            }
-//
-//            if(bins!=null && pDialog!=null)
-//            {
-//                pDialog.dismiss();
-//            }
-
-
-
         }
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_launch);
 
         /// add tab view
         InitView();
 
-
-
-
-        EditText editText1 = (EditText) findViewById(R.id.SearchTextBox);
+        //serach activity
+        editText1 = (EditText) findViewById(R.id.SearchTextBox);
         editText1.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
@@ -108,6 +132,10 @@ public class LaunchActivity extends AppCompatActivity {
                     if (!event.isShiftPressed()) {
 
                         Log.d("EditText", myEditText.getText().toString() );
+//                        searchedArea=myEditText.getText().toString();
+//
+//                        bininfoForArea=new BinsOfSearchedArea();
+//                        bininfoForArea.execute();
 
                         Geocoder geo = new Geocoder(getBaseContext());
                         List<Address> gotAddresses = null;
@@ -116,9 +144,14 @@ public class LaunchActivity extends AppCompatActivity {
 
                             Address address = (Address) gotAddresses.get(0);
 
-                            LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+                            currentLocation = new LatLng(address.getLatitude(), address.getLongitude());
+                            //currRad=10;
+                            Log.d("GotAddress", address.getLatitude() + " " + address.getLongitude());
 
-                            Log.d("GotAddress", address.getLatitude()+" "+ address.getLongitude());
+                            reqbininfo = new LoadBinsInfo();
+                            reqbininfo.execute();
+                            data_for_search=true;
+
 
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -141,7 +174,7 @@ public class LaunchActivity extends AppCompatActivity {
     }
 
     private void InitView() {
-        mTabHost = (FragmentTabHost)findViewById(android.R.id.tabhost);
+        mTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
         mTabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
 
         mTabHost.addTab(setIndicator(LaunchActivity.this, mTabHost.newTabSpec(TAB_FillLevels_TAG),
@@ -199,7 +232,11 @@ public class LaunchActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         boolean isPopFragment=false;
+
+
         String currentTabTag = mTabHost.getCurrentTabTag();
+
+        Log.d("Priti", "on Back Pressed ");
 
         if(currentTabTag.equals(TAB_FillLevels_TAG)){
             isPopFragment=((BaseContainerFragment)getSupportFragmentManager().findFragmentByTag(TAB_FillLevels_TAG)).popFragment();
@@ -236,6 +273,7 @@ public class LaunchActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_refresh:
                 doRefresh();
+                editText1.setText("");
                 return true;
             case R.id.action_settings:
                 openSettings();
@@ -248,23 +286,143 @@ public class LaunchActivity extends AppCompatActivity {
 
     private void doRefresh(){
 
-        reqbininfo = new LoadBinsInfo();
-        reqbininfo.execute();
+        if(!isConnected(this))
+            buildDialog(this).show();
+        else {
+            currentLocation = getCurrentLocation();
 
-        String currentTabTag = mTabHost.getCurrentTabTag();
+//            params.add(new BasicNameValuePair("lat", Double.toString(currentLocation.latitude)));
+//            params.add(new BasicNameValuePair("lon", Double.toString(currentLocation.longitude)));
+//            //params.add(new BasicNameValuePair("lat", Double.toString(12.9767)));
+//            //params.add(new BasicNameValuePair("lon", Double.toString(77.5767)));
+//            params.add(new BasicNameValuePair("rad", Integer.toString(20)));
 
-        BaseContainerFragment currFrg = (BaseContainerFragment)getSupportFragmentManager().findFragmentByTag(currentTabTag);
-
-        final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.detach(currFrg);
-        ft.attach(currFrg);
-        ft.commit();
+            reqbininfo = new LoadBinsInfo();
+            reqbininfo.execute();
+            data_for_search=false;
+        }
 
     }
 
     private void openSettings(){
 
     }
+
+    /**
+     * Creating google api client object
+     * */
+    protected synchronized void buildGoogleApiClient() {
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API).build();
+    }
+
+    /**
+     * Method to display the location on UI
+     * */
+    private LatLng getCurrentLocation() {
+
+        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+
+        if (mLastLocation != null) {
+            double latitude = mLastLocation.getLatitude();
+            double longitude = mLastLocation.getLongitude();
+
+            Log.d("CurrentLocation:", "lat="+Double.toString(latitude)+" lon="+Double.toString(longitude));
+            return new LatLng(latitude, longitude);
+        }
+
+        //coudn't find the location setting default value to 0 0
+        //return new LatLng(12.9767,77.5767);
+        return new LatLng(0,0);
+    }
+
+
+    /**
+            * Google api callback methods
+    */
+    @Override
+    public void onConnectionFailed(ConnectionResult result) {
+        Log.i("Launch", "Connection failed: ConnectionResult.getErrorCode() = " + result.getErrorCode());
+    }
+
+    @Override
+    public void onConnected(Bundle arg0) {
+
+        // Once connected with google api, get the location
+        currentLocation=getCurrentLocation();
+    }
+
+    @Override
+    public void onConnectionSuspended(int arg0) {
+        mGoogleApiClient.connect();
+    }
+
+
+
+    /**
+     * Method to verify google play services on the device
+     * */
+    private boolean checkPlayServices() {
+        int resultCode = GooglePlayServicesUtil
+                .isGooglePlayServicesAvailable(this);
+        if (resultCode != ConnectionResult.SUCCESS) {
+            if (GooglePlayServicesUtil.isUserRecoverableError(resultCode)) {
+                GooglePlayServicesUtil.getErrorDialog(resultCode, this,
+                        PLAY_SERVICES_RESOLUTION_REQUEST).show();
+            } else {
+                Toast.makeText(getApplicationContext(), "This device is not supported.", Toast.LENGTH_LONG).show();
+                finish();
+            }
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (mGoogleApiClient != null) {
+            mGoogleApiClient.connect();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mGoogleApiClient.isConnected()) {
+            mGoogleApiClient.disconnect();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Log.d("Resume", "on actionbar arrow presed");
+
+        checkPlayServices();
+    }
+
+    public static AlertDialog.Builder buildDialogAsSearched(Context c) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(c);
+        builder.setTitle("BinInfo");
+        builder.setMessage("Please click on refresh to get Bins info around current location.");
+
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+            }
+        });
+
+        return builder;
+    }
+
 
     class LoadBinsInfo extends AsyncTask<String, String, String> {
 
@@ -310,8 +468,18 @@ public class LaunchActivity extends AppCompatActivity {
 
                 Log.d("doinbackground", " Launchactivity inside");
 
+//                if(currentLocation==null){
+//                    currentLocation=getCurrentLocation();
+//
+//                }
+
                 // Building Parameters
                 List<NameValuePair> params = new ArrayList<NameValuePair>();
+                params.add(new BasicNameValuePair("lat", Double.toString(currentLocation.latitude)));
+                params.add(new BasicNameValuePair("lon", Double.toString(currentLocation.longitude)));
+//                params.add(new BasicNameValuePair("lat", Double.toString(12.9767)));
+//                params.add(new BasicNameValuePair("lon", Double.toString(77.5767)));
+                params.add(new BasicNameValuePair("rad", Integer.toString(currRad)));
 
                 // getting JSON string from URL
                 json = jParser.makeHttpRequest(url_all_bins, "GET", params);
@@ -347,20 +515,131 @@ public class LaunchActivity extends AppCompatActivity {
         protected void onPostExecute(String file_url) {
             // dismiss the dialog after getting all products
             Log.d("Postexecute", " Launchactivity entered");
+
             if(pDialog!=null && bins!=null )
                 pDialog.dismiss();
 
-            BaseContainerFragment fillLevelFrg = (BaseContainerFragment)getSupportFragmentManager().findFragmentByTag(TAB_FillLevels_TAG);
+            currentTabTag = mTabHost.getCurrentTabTag();
+
+            BaseContainerFragment currFrg = (BaseContainerFragment)getSupportFragmentManager().findFragmentByTag(currentTabTag);
+
             final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.detach(fillLevelFrg);
-            ft.attach(fillLevelFrg);
+            ft.detach(currFrg);
+            ft.attach(currFrg);
             ft.commit();
+
 
             Log.d("Postexecute", " initializing view");
             Log.d("Postexecute", " after calling initview");
 
         }
     }
+
+//    class BinsOfSearchedArea extends AsyncTask<String, String, String> {
+//
+//        private ProgressDialog pDialog;
+//
+//
+//        // JSON Node names
+//        private static final String TAG_SUCCESS = "success";
+//        private static final String TAG_BINS = "bins";
+//
+//        // Creating JSON Parser object
+//        JSONParser jParser = new JSONParser();
+//        JSONObject json = null;
+//
+//
+//        /***
+//         * Before starting background thread Show Progress Dialog
+//         ***/
+//        @Override
+//        protected void onPreExecute() {
+//            super.onPreExecute();
+//
+//            if(ctx!=null) {
+//                if (pDialog != null) {
+//                    pDialog = null;
+//                }
+//                pDialog = new ProgressDialog(ctx);
+//                pDialog.setMessage("Loading bins information. Please wait...");
+//                pDialog.setIndeterminate(false);
+//                pDialog.setCancelable(false);
+//                pDialog.show();
+//                Log.d("Preexecute", " search area dialoag shown");
+//            }
+//            Log.d("Preexecute", " searcharea exiting");
+//        }
+//
+//        /**
+//         * getting All bins from url
+//         */
+//        protected String doInBackground(String... args) {
+//
+//            try {
+//
+//                Log.d("doinbackground", " search query inside");
+//
+//                // Building Parameters
+//
+//                params.add(new BasicNameValuePair("area", searchedArea));
+//
+//                // getting JSON string from URL
+//                json = jParser.makeHttpRequest(url_serach_query, "GET", params);
+//
+//                if (json != null) {
+//
+//                    // Check your log cat for JSON reponse
+//                    Log.d("All bins: ", json.toString());
+//
+//                    // Checking for SUCCESS TAG
+//                    int success = json.getInt(TAG_SUCCESS);
+//
+//                    if (success == 1) { //bins found
+//
+//                        bins = new JSONArray();
+//
+//                        // Getting Array of Bins
+//                        bins = json.getJSONArray(TAG_BINS);
+//
+//                    }
+//                }
+//
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
+//
+//            return null;
+//
+//
+//        }
+//
+//        /**
+//         * After completing background task Dismiss the progress dialog
+//         ***/
+//        protected void onPostExecute(String file_url) {
+//            // dismiss the dialog after getting all products
+//            Log.d("Postexecute", " searcharea entered");
+//
+//
+//            if(pDialog!=null && bins!=null )
+//                pDialog.dismiss();
+//
+//            String currentTabTag = mTabHost.getCurrentTabTag();
+//
+//            BaseContainerFragment currFrg = (BaseContainerFragment)getSupportFragmentManager().findFragmentByTag(currentTabTag);
+//
+//            final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//            ft.detach(currFrg);
+//            ft.attach(currFrg);
+//            ft.commit();
+//
+//            data_for_search=true;
+//
+//            Log.d("Postexecute", " searched are initializing view");
+//            Log.d("Postexecute", " after calling search query");
+//
+//        }
+//    }
 
 
 }

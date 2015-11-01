@@ -32,7 +32,9 @@
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
-
+ <!-- <android:uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
+    <!-- <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> &lt;!&ndash; <android:uses-permission android:name="android.permission.READ_PHONE_STATE" /> &ndash;&gt; -->
+    <!-- <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -47,12 +49,36 @@
 
         <activity
             android:name="com.smartbinapp.smartbin.LaunchActivity"
-            android:label="@string/Fill_Levels_activity" >
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.smartbinapp.smartbin.BinDetailsActivity1"
+            android:label="@string/title_activity_bin_details"
+            android:parentActivityName="com.smartbinapp.smartbin.LaunchActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.smartbinapp.smartbin.LaunchActivity" />
+        </activity>
+        <!-- <activity -->
+        <!-- android:name=".BinDetailsActivity" -->
+        <!-- android:label="@string/title_activity_bin_details" -->
+        <!-- android:parentActivityName=".LaunchActivity" > -->
+        <!-- <meta-data -->
+        <!-- android:name="android.support.PARENT_ACTIVITY" -->
+        <!-- android:value="com.smartbinapp.smartbin.LaunchActivity" /> -->
+        <!-- </activity> -->
+        <activity
+            android:name="com.smartbinapp.smartbin.AnalysisGraph"
+            android:label="@string/title_activity_analysis_graph"
+            android:parentActivityName="com.smartbinapp.smartbin.LaunchActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.smartbinapp.smartbin.LaunchActivity" />
         </activity>
         <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity

@@ -4,25 +4,21 @@ package com.smartbinapp.smartbin;
  * Created by Shilpa_choudhary on 10/21/2015.
  */
 
-import android.app.DialogFragment;
-import android.content.DialogInterface;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.os.Bundle;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import android.util.Log;
-import android.widget.Toast;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -45,17 +41,34 @@ public class customFregmentTab  extends Fragment implements View.OnClickListener
         day =  c.get(Calendar.DAY_OF_MONTH);
         View rootView = inflater.inflate(R.layout.customfregmentlayout, container, false);
 
-        button1 = (Button) rootView.findViewById(R.id.button1);// get button id from example_3_1 xml file
+        RelativeLayout rl = (RelativeLayout)rootView.findViewById(R.id.loclayout);
+        if(Double.parseDouble(BinDetailsActivity1.filltxt)>80){
+            rl.setBackgroundResource(R.drawable.red_button_border);
+
+        }
+        else if(Double.parseDouble(BinDetailsActivity1.filltxt) <=80 && Double.parseDouble(BinDetailsActivity1.filltxt)>50 ){
+            rl.setBackgroundResource(R.drawable.orange_button_border);
+        }else{
+            rl.setBackgroundResource(R.drawable.green_button_border);
+        }
+
+        TextView ltxtView = (TextView) rootView.findViewById(R.id.ltxtView);
+        ltxtView.setText(BinDetailsActivity1.loctxt);
+
+        TextView rtxtView = (TextView) rootView.findViewById(R.id.rtxtView);
+        rtxtView.setText(BinDetailsActivity1.filltxt +"%");
+
+        button1 = (Button) rootView.findViewById(R.id.button1);// get button id
         button1.setOnClickListener(this); //on button appay click listner
 
-        button2 = (Button) rootView.findViewById(R.id.button2);// get button id from example_3_1 xml file
+        button2 = (Button) rootView.findViewById(R.id.button2);// get button id from
         button2.setOnClickListener(this); //on button appay click listner
 
 
-        text1 = (EditText) rootView.findViewById(R.id.editText1);// id get from example_3_1 xml file
+        text1 = (EditText) rootView.findViewById(R.id.editText1);// id get from
         text1.setText(day + " / " + (month + 1) + " / " + year);
         text2 = (EditText) rootView.findViewById(R.id.editText2);
-        text2.setText(day + " / " + (month + 1) + " / " + year);     //set text
+        text2.setText("Today");     //set text
 
         Log.v(TAG, "shilpa in mainactivity actionbar custom activity3");
         return rootView;
@@ -85,6 +98,16 @@ public class customFregmentTab  extends Fragment implements View.OnClickListener
             case R.id.button2:        // it mean if button1 click then this work
                 date.setCallBack(ondateForTo);
                 date.show(getActivity().getFragmentManager(), "datePickerforToButton");
+                break;
+
+            case R.id.button3:        // it mean if button3 click then this work
+                //show custom graph
+                FragmentManager fragmentManager = getActivity().getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                customGraphView graph = new customGraphView();
+                fragmentTransaction.replace(R.id.binDetails, graph);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
                 break;
         }
     }

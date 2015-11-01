@@ -24,7 +24,7 @@ public class FillLevelContainer extends BaseContainerFragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.e("Priti", "FillLevelTab");
+        Log.d("Priti", "FillLevelTab");
         return inflater.inflate(R.layout.container_framelayout, null);
     }
 

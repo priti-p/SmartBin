@@ -5,17 +5,19 @@ package com.smartbinapp.smartbin;
  */
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.graphics.Color;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.jjoe64.graphview.GraphViewSeries;
 import com.jjoe64.graphview.BarGraphView;
@@ -48,14 +50,34 @@ public class weekFregmentTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+
+
         int z[]={0,1,2,3,4,5,6};
         int x[]={2,4,8,10,12,14,10};
         int w[]={0,1,2,3,4,5,6};
         int y[]={5,4,8,10,12,14,10};
         double range[] = {0.0,0.1,10.0};
 
+        Log.d("weektab", "Inside create view");
         View rootView = inflater.inflate(R.layout.weekfregmentlayout, container, false);
-        TextView txtView = (TextView) rootView.findViewById(R.id.text_id1);
+
+        RelativeLayout rl = (RelativeLayout)rootView.findViewById(R.id.loclayout);
+        if(Double.parseDouble(BinDetailsActivity1.filltxt)>80){
+            rl.setBackgroundResource(R.drawable.red_button_border);
+
+        }
+        else if(Double.parseDouble(BinDetailsActivity1.filltxt) <=80 && Double.parseDouble(BinDetailsActivity1.filltxt)>50 ){
+            rl.setBackgroundResource(R.drawable.orange_button_border);
+        }else{
+            rl.setBackgroundResource(R.drawable.green_button_border);
+        }
+
+
+        TextView ltxtView = (TextView) rootView.findViewById(R.id.ltxtView);
+        ltxtView.setText(BinDetailsActivity1.loctxt);
+
+        TextView rtxtView = (TextView) rootView.findViewById(R.id.rtxtView);
+        rtxtView.setText(BinDetailsActivity1.filltxt +"%");
 
         // Creating an  XYSeries for Temperature
         tempSeries = new XYSeries("Temperature ");
@@ -124,9 +146,7 @@ public class weekFregmentTab extends Fragment {
         multiRenderer.addSeriesRenderer(tempRenderer);
         multiRenderer.addSeriesRenderer(humidityRenderer);
 
-
-
-        // Getting a reference to LinearLayout of the MainActivity Layout
+        // Getting a reference to LinearLayout
         LinearLayout chartContainer = (LinearLayout) rootView.findViewById(R.id.graph);
         Log.v(TAG, "shilpa in mainactivity actionbar custom activity");
         // Specifying chart types to be drawn in the graph

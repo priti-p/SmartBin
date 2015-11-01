@@ -2,81 +2,11 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\7.8.0\jars\classes.jar"
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.8.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="2e24e5f1b11170163028277de63f709e42525db4">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-6cf47ad6be6637a8151ab70833a1bb2108b4eb31.jar" />
-    </item>
-    <item
-        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="c2ac04c5b232f6f0658ee4f1c13be09cd76406e2">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-da469ac711e65277c6c92fe297da432759a43b34.jar" />
-    </item>
-    <item
-        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="4a135d56554069e5d0ff80e3220e887e57146ee5">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-e3d3fa89bfe7215e38cb46d31bc6a9aa740d19c1.jar" />
-    </item>
-    <item
-        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="6e85edfc9b5346d216e50ccef1f8e825504144a3">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-fc4e9aec4443991ce539dad805af62d3591dce3a.jar" />
-    </item>
-    <item
-        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="0124ce31248c0e8acfa2b28283c6d1a4d76e73d2">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-37dcf6a663cc1c089fbaaf261182bbdc2f025baa.jar" />
-    </item>
-    <item
-        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="edea92852b40eee716e910af8dad9eeaa58fb0e1">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-373e79bee1258a105f1a43c510b30dd2bdc5221a.jar" />
-    </item>
-    <item
-        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="cb6fab7a71fa9ec1f483d44c5fca65ab469d8aca">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-b84017890acd6d49fcaae755d471c66342768356.jar" />
-    </item>
-    <item
-        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\libs\httpclient-4.0.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="a76d7fd8033d48b4c67b4ccf159abb080c1059b6">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\httpclient-4.0-2f770c1137e3949a15263b6be2c963729e15f967.jar" />
-    </item>
-    <item
-        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="c5cafb324568d954780abb858c25db7ce675ab3c">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-d8d592b1ec71771679e44d0295f5ee4c6baabb67.jar" />
-    </item>
-    <item
-        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="adebe28e0c0c05d34a3bfd76f3275bf4d8ff87b6">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-301057ca620d59ab1a4859d83901c5e67bdb6c3a.jar" />
-    </item>
-    <item
-        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\libs\achartengine-1.1.0.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="9932e3fb9fbe54e80873e77f72a99f79e33b3250">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\achartengine-1.1.0-6832e118020ed287305777bdf7688194648ba9a8.jar" />
+        sha1="2491ae1b2a848af1f4f0c795f3117c1bd6a1989f">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-9adbbb2696ec4b8a8b12a02fc498a028ac081aa9.jar" />
     </item>
     <item
         jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\7.8.0\jars\classes.jar"
@@ -86,95 +16,11 @@
         <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-8943e7a52d84ab081fc8e22eb56ae8201cdbd8e5.jar" />
     </item>
     <item
-        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\7.8.0\jars\classes.jar"
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\7.8.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="130b32ed466fa0f63efd4c7d6250ccd2ed506790">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-5751373dde0f18458174345338925aa138c25c9b.jar" />
-    </item>
-    <item
-        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="98137c4d12c50923f5809852b1ef4d1c4e162081">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-1cb6b113975a1e17c4a94e1db1fcf76fcdbf3c71.jar" />
-    </item>
-    <item
-        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="dcf8c83c3dead00a6c4fe313e95f7aaca20dc641">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-01ba3aabeccbd31c087638c7337dd00f4f97415a.jar" />
-    </item>
-    <item
-        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="b99f0b78bbcb76b915bc6529a83b65d4d46990dd">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-c03408a30cbfbe6136f300db41dc9a7af0e3ac6b.jar" />
-    </item>
-    <item
-        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="166e458ee3b5fb5fcff0f936df3f3a788e6c54f3">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-48011eea150237d690b2b97671462f21a26de8ed.jar" />
-    </item>
-    <item
-        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\libs\GraphView-3.1.1.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="fde5ac3b4d45761447598d87b4c43cc4d143890a">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\GraphView-3.1.1-84e06cc5f7410953b521652aec165e9aa7b20817.jar" />
-    </item>
-    <item
-        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="2491ae1b2a848af1f4f0c795f3117c1bd6a1989f">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-9adbbb2696ec4b8a8b12a02fc498a028ac081aa9.jar" />
-    </item>
-    <item
-        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\libs\internal_impl-23.0.0.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.0-2fe7a44fc3ed8e71e557bf45a77589ff0cf1c7f5.jar" />
-    </item>
-    <item
-        jar="C:\Users\Priti_Parate\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.0\support-annotations-23.0.0.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.0-6bd7fb72e4266ac259d6b11e79928d1beeab70c3.jar" />
-    </item>
-    <item
-        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-5ed9b966e3d54f7a4ea956e0dac53576d4dffa6c.jar" />
-    </item>
-    <item
-        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="d11330ea68c0d964d30d5caed1f27e6b1488b189">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-9d6dbf6ca1870eee79944a921757a73551c52969.jar" />
-    </item>
-    <item
-        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="c756d14e99d39471e99013a1e8fd2f3813ed42bf">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-8842a527be4a284931abf615f60327c4233ed9a0.jar" />
-    </item>
-    <item
-        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="e23ea11124bb700eeddd4ab7aa848c615f493850">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-3fb8bbdf6b878f46534cad9a780a28cf365384a2.jar" />
+        sha1="c5cafb324568d954780abb858c25db7ce675ab3c">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-d8d592b1ec71771679e44d0295f5ee4c6baabb67.jar" />
     </item>
     <item
         jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\7.8.0\jars\classes.jar"
@@ -184,6 +30,34 @@
         <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-472b6ee978a4d0172454c577947e6220e3942d46.jar" />
     </item>
     <item
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-5ed9b966e3d54f7a4ea956e0dac53576d4dffa6c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.0\support-annotations-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.0-6bd7fb72e4266ac259d6b11e79928d1beeab70c3.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\libs\GraphView-3.1.1.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="fde5ac3b4d45761447598d87b4c43cc4d143890a">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\GraphView-3.1.1-84e06cc5f7410953b521652aec165e9aa7b20817.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="cb6fab7a71fa9ec1f483d44c5fca65ab469d8aca">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-b84017890acd6d49fcaae755d471c66342768356.jar" />
+    </item>
+    <item
         jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\7.8.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.0"
@@ -191,11 +65,11 @@
         <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-81b1e576a68467b0f35df64f10c7caa856b4536a.jar" />
     </item>
     <item
-        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.0\jars\classes.jar"
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.8.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="4fcf0b1879f8caf497c073e1432d398e9e2988c1">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-a2d3d84211b606ab78d0501097e56debc34892ea.jar" />
+        sha1="4a135d56554069e5d0ff80e3220e887e57146ee5">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-e3d3fa89bfe7215e38cb46d31bc6a9aa740d19c1.jar" />
     </item>
     <item
         jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\libs\httpcore-4.0-alpha5.jar"
@@ -205,11 +79,18 @@
         <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\httpcore-4.0-alpha5-ddf06ee12afc6394cb73b4f5f2c02f40f4d662a1.jar" />
     </item>
     <item
-        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\7.8.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="0632f06970823b7e3436f649bfa65b47035c91d0">
-        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-b1cbc64267f1c3fb7183038d60ceeb068341202a.jar" />
+        sha1="edea92852b40eee716e910af8dad9eeaa58fb0e1">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-373e79bee1258a105f1a43c510b30dd2bdc5221a.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="e23ea11124bb700eeddd4ab7aa848c615f493850">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-3fb8bbdf6b878f46534cad9a780a28cf365384a2.jar" />
     </item>
     <item
         jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.8.0\jars\classes.jar"
@@ -217,6 +98,125 @@
         revision="23.0.0"
         sha1="c0c912d58c9468b1f9d9769c8975afdf2c85d681">
         <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-e8e478cb5b790b00d30c80b1c48e0579d81afb17.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\libs\achartengine-1.1.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="9932e3fb9fbe54e80873e77f72a99f79e33b3250">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\achartengine-1.1.0-6832e118020ed287305777bdf7688194648ba9a8.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="c2ac04c5b232f6f0658ee4f1c13be09cd76406e2">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-da469ac711e65277c6c92fe297da432759a43b34.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="98137c4d12c50923f5809852b1ef4d1c4e162081">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-1cb6b113975a1e17c4a94e1db1fcf76fcdbf3c71.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="2e24e5f1b11170163028277de63f709e42525db4">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-6cf47ad6be6637a8151ab70833a1bb2108b4eb31.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="0124ce31248c0e8acfa2b28283c6d1a4d76e73d2">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-37dcf6a663cc1c089fbaaf261182bbdc2f025baa.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="0632f06970823b7e3436f649bfa65b47035c91d0">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-b1cbc64267f1c3fb7183038d60ceeb068341202a.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="dcf8c83c3dead00a6c4fe313e95f7aaca20dc641">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-01ba3aabeccbd31c087638c7337dd00f4f97415a.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="166e458ee3b5fb5fcff0f936df3f3a788e6c54f3">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-48011eea150237d690b2b97671462f21a26de8ed.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\libs\internal_impl-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.0-2fe7a44fc3ed8e71e557bf45a77589ff0cf1c7f5.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\libs\httpclient-4.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="a76d7fd8033d48b4c67b4ccf159abb080c1059b6">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\httpclient-4.0-2f770c1137e3949a15263b6be2c963729e15f967.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="6e85edfc9b5346d216e50ccef1f8e825504144a3">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-fc4e9aec4443991ce539dad805af62d3591dce3a.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="d11330ea68c0d964d30d5caed1f27e6b1488b189">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-9d6dbf6ca1870eee79944a921757a73551c52969.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="adebe28e0c0c05d34a3bfd76f3275bf4d8ff87b6">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-301057ca620d59ab1a4859d83901c5e67bdb6c3a.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="b99f0b78bbcb76b915bc6529a83b65d4d46990dd">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-c03408a30cbfbe6136f300db41dc9a7af0e3ac6b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="c756d14e99d39471e99013a1e8fd2f3813ed42bf">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-8842a527be4a284931abf615f60327c4233ed9a0.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="4fcf0b1879f8caf497c073e1432d398e9e2988c1">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-a2d3d84211b606ab78d0501097e56debc34892ea.jar" />
+    </item>
+    <item
+        jar="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="130b32ed466fa0f63efd4c7d6250ccd2ed506790">
+        <dex dex="C:\Users\Priti_Parate\AndroidStudioProjects\SmartBin\app\build\intermediates\pre-dexed\debug\classes-5751373dde0f18458174345338925aa138c25c9b.jar" />
     </item>
 
 </items>
